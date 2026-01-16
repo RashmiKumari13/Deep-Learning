@@ -6,6 +6,7 @@ implementations of neural network components using only
 NumPy and Matplotlib.
 
 🚀 Experiments Overview1.
+
 1.Single-Layer Perceptron (SLP)
   Goal: Implement a basic Perceptron for binary classification.
   Key Learning: Understood the Perceptron Update Rule: w = w + n(y -y^)x.
@@ -27,6 +28,7 @@ NumPy and Matplotlib.
       Python 3.x
       NumPy (Linear Algebra)
       Matplotlib (Data Visualization)
+
 
 
 
