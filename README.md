@@ -7,11 +7,11 @@ NumPy and Matplotlib.
 
 🚀 Experiments Overview1.
 
-1.Single-Layer Perceptron (SLP)
-  Goal: Implement a basic Perceptron for binary classification.
-  Key Learning: Understood the Perceptron Update Rule: w = w + n(y -y^)x.
-  Observation: Successfully classified linearly separable data but failed on non-linear
-  datasets (like XOR), proving the need for multi-layer architectures.
+   1.Single-Layer Perceptron (SLP)
+      Goal: Implement a basic Perceptron for binary classification.
+      Key Learning: Understood the Perceptron Update Rule: w = w + n(y -y^)x.
+      Observation: Successfully classified linearly separable data but failed on non-linear
+                   datasets (like XOR), proving the need for multi-layer architectures.
   
   2. Multi-Layer Perceptron (MLP) - Forward Pass
      Goal: Build a multi-layer structure with hidden layers.
@@ -28,6 +28,7 @@ NumPy and Matplotlib.
       Python 3.x
       NumPy (Linear Algebra)
       Matplotlib (Data Visualization)
+
 
 
 
