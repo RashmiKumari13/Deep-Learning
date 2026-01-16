@@ -29,9 +29,11 @@ NumPy and Matplotlib.
        
        
  🛠️ Tech Stack
-      Python 3.x
-      NumPy (Linear Algebra)
-      Matplotlib (Data Visualization)
+          
+          Python 3.x
+          NumPy (Linear Algebra)
+          Matplotlib (Data Visualization)
+
 
 
 
