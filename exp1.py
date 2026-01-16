@@ -1,15 +1,3 @@
-#w=w-n(y-y^)x
-#w=[w0 w1 w2]
-"""x=[1 x1 x2 ,  1 ...  ... , 1   ... ...][]
-    
-    y^=w0x0+w1x1+w2x2
-    y^=wx^t
-
-    [w0 w1 w2][ 1
-                x1
-                x2]
-
-"""
 import numpy as np
 class Perceptron:
     def __init__(self, learning_rate=0.1, epochs=10):
