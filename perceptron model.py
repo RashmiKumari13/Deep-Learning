@@ -10,3 +10,15 @@ plt.figure(figsize=(6,6))
 plt.scatter(X[:,0],X[:,1], c=y)
 plt.title('GROUND TRUTH',fontsize=18)
 plt.show()
+
+
+#initializing weight
+w=np.random.rand(3,1)
+print(w)
+
+
+#adding bias
+X_bias=np.ones([X.shape[0], 3)
+print(X_bias)
+X_bias[:, 1:3]= X
+print(X_bias)
