@@ -1,0 +1,27 @@
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# Load MobileNetV2 without the 1000-class ImageNet head
+base_model = tf.keras.applications.MobileNetV2(input_shape=(224, 224, 3), 
+                                               include_top=False, 
+                                               weights='imagenet')
+
+# STEP 1: FREEZE (Transfer Learning)
+base_model.trainable = False 
+
+model = models.Sequential([
+    base_model,
+    layers.GlobalAveragePooling2D(),
+    layers.Dense(256, activation='relu'),
+    layers.Dense(10, activation='softmax') # Our 10 bird species
+])
+
+# STEP 2: FINE-TUNE (Unfreeze the last few blocks)
+base_model.trainable = True
+for layer in base_model.layers[:100]: # Keep first 100 layers frozen
+    layer.trainable = False
+
+# Use a very small learning rate for fine-tuning
+model.compile(optimizer=tf.keras.optimizers.Adam(1e-5), 
+              loss='categorical_crossentropy', 
+              metrics=['accuracy'])
