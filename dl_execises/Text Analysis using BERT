@@ -1,0 +1,21 @@
+from transformers import AutoModelForSequenceClassification, Trainer, TrainingArguments
+# Load pre-trained BERT for 3 labels (Positive, Neutral, Negative)
+model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=3)
+
+# Fine-tuning parameters
+training_args = TrainingArguments(
+    output_dir="./results",
+    learning_rate=2e-5,    # Low LR to prevent catastrophic forgetting
+    per_device_train_batch_size=16,
+    num_train_epochs=3,
+    weight_decay=0.01,
+)
+
+# The Trainer handles the training loop
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=my_tokenized_data,
+)
+
+trainer.train()
