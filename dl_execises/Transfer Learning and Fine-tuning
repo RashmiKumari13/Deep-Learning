@@ -1,0 +1,31 @@
+import tensorflow as tf
+from tensorflow.keras import layers, models
+# 1. Load pre-trained model without the top classification layer
+base_model = tf.keras.applications.MobileNetV2(
+    input_shape=(160, 160, 3), 
+    include_top=False, 
+    weights='imagenet'
+)
+# 2. Freeze the base model
+base_model.trainable = False
+
+# 3. Add custom head
+model = models.Sequential([
+    base_model,
+    layers.GlobalAveragePooling2D(),
+    layers.Dense(1, activation='sigmoid') # For binary classification
+])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# -- After initial training, you can Fine-tune --
+# 4. Unfreeze the base model
+base_model.trainable = True
+# 5. Freeze all layers EXCEPT the last few
+# Let's say we unfreeze from layer 100 onwards
+for layer in base_model.layers[:100]:
+    layer.trainable = False
+# 6. Recompile with a LOWER learning rate
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(1e-5), # Very small LR
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
